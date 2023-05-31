@@ -64,7 +64,8 @@ body {
 
 .livros {
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
+  gap: 1em;
   flex-wrap: wrap;
 }
 
@@ -134,12 +135,16 @@ body {
   align-items: center;
 }
 
+.livros__disponiveis.oculto {
+  display: none;
+}
+
 .livros__disponiveis p {
   color: #fff;
   font-weight: 500;
   line-height: 24px;
   font-size: 2.5em;
-} 
+}
 
 .rodape {
   width: 100%;

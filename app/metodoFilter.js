@@ -6,8 +6,28 @@ function filtrarLivros() {
   const filtro = elementoBtn.value;
   let livrosFiltrados =
     filtro == 'disponivel'
-      ? livros.filter(livro => livro.quantidade > 0)
-      : livros.filter(livro => livro.categoria == filtro);
+      ? filtrarPorDisponibilidade()
+      : filtrarPorCategoria(filtro);
 
   colocarLivrosNaPagina(livrosFiltrados);
+
+  if (filtro == 'disponivel') {
+    let precoTotal = calculaValorTotalLivrosDisponiveis(livrosFiltrados);
+    mostrarPrecoDosLivrosDisponiveis(precoTotal);
+  }
+}
+function filtrarPorCategoria(filtro) {
+  return livros.filter(livro => livro.categoria == filtro);
+}
+
+function filtrarPorDisponibilidade() {
+  return livros.filter(livro => livro.quantidade > 0);
+}
+
+function mostrarPrecoDosLivrosDisponiveis(precoTotal) {
+  secaoPrecoLivrosDisponiveis.innerHTML = `
+  <div class="livros__disponiveis">
+    <p>Todos os livros disponíveis por R$ <span id="valor">${precoTotal}</span></p>
+  </div>  
+  `;
 }

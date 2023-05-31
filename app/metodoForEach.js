@@ -1,7 +1,12 @@
 const secaoDeLivros = document.getElementById('livros');
 
+const secaoPrecoLivrosDisponiveis = document.getElementById(
+  'valor_total_livros_disponiveis'
+);
+
 function colocarLivrosNaPagina(listaDeLivros) {
   secaoDeLivros.innerHTML = '';
+  secaoPrecoLivrosDisponiveis.innerHTML = '';
   listaDeLivros.forEach(livro => {
     secaoDeLivros.innerHTML += `
     <div class="livro">

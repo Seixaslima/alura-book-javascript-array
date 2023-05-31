@@ -1,6 +1,7 @@
 const secaoDeLivros = document.getElementById('livros');
 
 function colocarLivrosNaPagina(listaDeLivros) {
+  secaoDeLivros.innerHTML = '';
   listaDeLivros.forEach(livro => {
     secaoDeLivros.innerHTML += `
     <div class="livro">
